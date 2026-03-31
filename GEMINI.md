@@ -18,8 +18,11 @@ The project is built as a high-performance CLI using **TypeScript** and **React*
 ## Architecture & Project Structure
 - `main.tsx`: The main entry point of the CLI application.
 - `setup.ts`: Handles initialization, environment checks, and workspace configuration.
-- `commands/` & `commands.ts`: Implementation and registration of CLI commands (e.g., `init`, `commit`, `review`, `mcp`, `tasks`).
+- `commands/` & `commands.ts`: Implementation and registration of CLI commands (e.g., `init`, `commit`, `review`, `mcp`, `tasks`, `web`).
 - `tools/` & `tools.ts`: Definitions of agent-accessible tools (e.g., `BashTool`, `FileEditTool`, `GrepTool`, `WebSearchTool`).
+- `web/`: Prototype web interface for Claude Code.
+- `ink-web.tsx`: React DOM compatibility layer for Ink components.
+- `server/webServer.ts`: Backend server for the web interface.
 - `services/`: Core business logic, including API clients, MCP integration, analytics, and policy management.
 - `utils/`: A vast collection of utilities for git, shell, config, permissions, and platform-specific logic.
 - `components/`: React/Ink UI components for the terminal interface.
@@ -29,6 +32,7 @@ The project is built as a high-performance CLI using **TypeScript** and **React*
 As this directory contains the source code, the primary way to interact with it during development is via `bun`:
 
 - **Run CLI:** `bun main.tsx [command]`
+- **Web Interface:** `bun main.tsx web` (launches a local web server and opens the browser)
 - **Development Setup:** Logic is primarily contained in `setup.ts`, which handles git root detection, worktree management, and configuration loading.
 - **Tests:** The project uses `NODE_ENV=test` for testing environments.
 
